@@ -1,22 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class Test : MonoBehaviour
 {
-    [SerializeField] private MeshRenderer _mr;
-    [SerializeField] private Collider _coll;
+    private MinHeap<int> _heap = new MinHeap<int>(20);
 
-    private void OnDrawGizmos()
+    private void Start()
     {
-        var bounds = _mr.bounds;
-        var min = bounds.min;
-        var max = bounds.max;
-
-        var center = (min + max) / 2;
-        var size = max - min;
-
-        Gizmos.DrawWireRect(center, size, Color.red);
+        _heap.Add(10);
+        _heap.Add(20);
+        _heap.Add(30);
+        _heap.Add(40);
     }
 }
